@@ -1,4 +1,43 @@
 
+import _thread
+import time
+
+# Define a function for the thread
+def print_time( threadName, delay):
+   count = 0
+   while count < 5:
+      time.sleep(delay)
+      count += 1
+      print ("%s: %s" % ( threadName, time.ctime(time.time()) ))
+
+# Create two threads as follows
+try:
+   _thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+   _thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+except:
+   print ("Error: unable to start thread")
+
+while 1:
+   pass
+
+'''
+
+import threading
+
+# https://pymotw.com/2/threading/
+def worker():
+    """thread worker function"""
+    print ('Worker')
+    return
+
+threads = []
+for i in range(5):
+    t = threading.Thread(target=worker)
+    threads.append(t)
+    t.start()
+
+'''
+'''
 import tkinter as tk
 
 # https://datatofish.com/entry-box-tkinter/
@@ -25,6 +64,7 @@ canvas1.create_window(200, 180, window=button1)
 root.mainloop()
 
 '''
+'''
 
 import urllib.request
 
@@ -32,20 +72,6 @@ print('Beginning file download with urllib2...')
 
 url = 'http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg'
 urllib.request.urlretrieve(url, 'c:/temp/cat.jpg')
-
-OR:
-
-import requests
-import os
-
-url = 'https://apod.nasa.gov/apod/image/1701/potw1636aN159_HST_2048.jpg'
-page = requests.get(url)
-
-f_ext = os.path.splitext(url)[-1]
-f_name = 'img{}'.format(f_ext)
-with open(f_name, 'wb') as f:
-    f.write(page.content)
-    
 '''
 
 '''
