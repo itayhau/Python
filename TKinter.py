@@ -1,4 +1,40 @@
 
+import tkinter as tk
+
+# https://datatofish.com/entry-box-tkinter/
+
+root = tk.Tk()
+
+canvas1 = tk.Canvas(root, width=400, height=300)
+canvas1.pack()
+
+entry1 = tk.Entry(root)
+canvas1.create_window(200, 140, window=entry1)
+
+
+def getSquareRoot():
+    x1 = entry1.get()
+
+    label1 = tk.Label(root, text=float(x1) ** 0.5)
+    canvas1.create_window(200, 230, window=label1)
+
+
+button1 = tk.Button(text='Get the Square Root', command=getSquareRoot)
+canvas1.create_window(200, 180, window=button1)
+
+root.mainloop()
+
+'''
+
+import urllib.request
+
+print('Beginning file download with urllib2...')
+
+url = 'http://i3.ytimg.com/vi/J---aiyznGQ/mqdefault.jpg'
+urllib.request.urlretrieve(url, 'c:/temp/cat.jpg')
+'''
+
+'''
 from tkinter import Tk, Label, Button, Entry, IntVar, END, W, E
 
 class Calculator:
@@ -62,7 +98,6 @@ my_gui = Calculator(root)
 root.mainloop()
 
 
-'''
 from tkinter import Tk, Label, Button, StringVar
 
 class MyFirstGUI:
